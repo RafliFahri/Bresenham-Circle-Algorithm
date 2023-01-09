@@ -21,7 +21,7 @@ function drawCircle(xc, yc, x, y) {
   canvas.fillRect(xc - y, yc + x, 1, 1);
 }
 
-//
+//Calculations to determine the coordinate points
 function drawCircleBresenham(xc, yc, r) {
   var xi = 0;
   var yi = r;
@@ -30,9 +30,9 @@ function drawCircleBresenham(xc, yc, r) {
   canvas.fillStyle = "BLUE";
   drawCircle(xc,yc,xi,yi);
 
-  var mH = Math.abs(Math.pow((xi+1),2)+Math.pow(yi,2)-Math.pow(r,2));
-  var mD = Math.abs(Math.pow((xi+1),2)+Math.pow((yi-1),2)-Math.pow(r,2));
-  var mV = Math.abs(Math.pow(xi,2)+Math.pow((yi-1),2)-Math.pow(r,2));
+  var mH = Math.abs(Math.pow((xi+1),2)+Math.pow(yi,2)-Math.pow(r,2));//Horizontal Point
+  var mD = Math.abs(Math.pow((xi+1),2)+Math.pow((yi-1),2)-Math.pow(r,2));//Diagonal Point
+  var mV = Math.abs(Math.pow(xi,2)+Math.pow((yi-1),2)-Math.pow(r,2));//Vertikal Point
 
   while (xi < yi) {
     var delta = Math.pow((xi+1),2)+Math.pow((yi-1),2)-Math.pow(r,2);
@@ -70,4 +70,4 @@ function drawCircleBresenham(xc, yc, r) {
   console.log(mV);
 }
 //To Run a Function
-drawCircleBresenham(0, 0, 100);
+drawCircleBresenham(0, 0, 5);
